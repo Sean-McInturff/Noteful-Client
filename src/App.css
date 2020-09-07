@@ -1,0 +1,194 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: navy;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: white;
+}
+
+.App-header a {
+  color: white;
+}
+
+.App-link {
+  color: white;
+}
+
+h1{
+  font-family:cursive;
+}
+
+h2{
+  font-size: 35px;
+  font-family: cursive;
+}
+
+.CurrentFolder {
+  font-size: 30px;
+  font-family: monospace;
+}
+
+.Sidebar {
+  color: navy;
+  box-sizing: border-box;
+  width: 20%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  border: solid black;
+  border-top: none;
+  border-left: none;
+  min-height: 80vh;
+}
+
+.Main {
+  color: navy;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-left: 3rem;
+  width: 66%;
+  display: inline-block;
+  text-align: left;
+}
+
+.deletebtn{
+  padding: 5px 10px;
+  border: none;
+  background-color: firebrick;
+  font-size: 17px;
+  color:white;
+}
+
+.newNotebtn{
+  padding: 15px 20px;
+  border: none;
+  font-size: 20px;
+  background-color: navy;
+  color:white;
+}
+
+.Sidebar ul {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+.AddFolderButton {
+  padding: 15px 26px;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  background: lightblue;
+}
+
+
+.Note {
+  list-style:none;
+  display: block;
+  box-sizing: border-box;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  border: 3px solid navy;
+}
+
+.folder.selected {
+  color: white;
+  font-weight: bold;
+  background-color: navy;
+}
+
+main a{
+  color: black;
+  font-size: 20px;
+}
+
+main a:hover{
+  color:navy;
+}
+
+.Sidebar a{
+  padding: 5px;
+  color:black;
+  line-height: 45px;
+  text-decoration: none;
+  border: 2px solid black;
+  font-size: 20px;
+}
+
+.Sidebar a:hover{
+  color:black;
+  background-color: white;
+}
+
+.AddFolder h2{
+  color: navy;
+  text-decoration: underline;
+  font-size: 50px;
+}
+
+.AddFolder label{
+  font-size: 27px;
+}
+.AddFolder input {
+  border: 5px solid navy;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.AddFolder button {
+  margin: 7px;
+  padding: 10px 16px;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  background: navy;
+  color:white
+}
+
+.AddNote h2 {
+  color: navy;
+  text-decoration: underline;
+  font-size: 50px;
+}
+
+.AddNote label{
+  font-size: 27px;
+  font-family: cursive;
+  color: navy;
+}
+
+.AddNote input{
+  border: 5px solid navy;
+  padding: 7px;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.AddNote textarea {
+  border: 5px solid navy;
+  width: 250px;
+  height: 100px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.AddNote select {
+  border: 2px solid navy;
+  width: 100px;
+  height: 35px;
+  font-weight: bold;
+}
