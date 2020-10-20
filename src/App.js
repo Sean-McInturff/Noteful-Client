@@ -13,30 +13,79 @@ import ErrorBoundary from './ErrorBoundary'
 
 
 class App extends React.Component {
-  state = {
-    notes: [],
-    folders: []
-  };
 
-  componentDidMount() {
-    Promise.all([
-        fetch(`${config.API_ENDPOINT}/notes`),
-        fetch(`${config.API_ENDPOINT}/folders`)
-    ])
-        .then(([notesRes, foldersRes]) => {
-            if (!notesRes.ok)
-                return notesRes.json().then(e => Promise.reject(e));
-            if (!foldersRes.ok)
-                return foldersRes.json().then(e => Promise.reject(e));
+    state = {
+        notes: [],
+        folders: []
+    };
 
-            return Promise.all([notesRes.json(), foldersRes.json()]);
-        })
-        .then(([notes, folders]) => {
-            this.setState({notes, folders});
-        })
-        .catch(error => {
-            console.error({error});
-        });
+    componentDidUpdate() {
+        fetch(`${config.API_ENDPOINT}/notes/`)
+            .then(res => res.json())
+
+            .then(noteRes => {
+                if (noteRes.length !== this.state.notes.length) {
+                    this.setState({
+                        notes: noteRes
+                    })
+                }
+            })
+            .catch(err => console.log(err.message));
+
+        fetch(`${config.API_ENDPOINT}/folders/`)
+            .then(res => res.json())
+            .then(folderRes => {
+                if (folderRes.length !== this.state.folders.length) {
+                    this.setState({
+                        folders: folderRes
+                    })
+                }
+            })
+            .catch(err => console.log(err.message))
+
+    }
+
+
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/notes/`)
+            .then(res => res.json())
+
+            .then(noteRes => {
+                this.setState({
+                    notes: noteRes
+                })
+            })
+            .catch(err => console.log(err.message));
+
+        fetch(`${config.API_ENDPOINT}/folders/`)
+            .then(res => res.json())
+            .then(folderRes => {
+
+                this.setState({
+                    folders: this.state.folders, ...folderRes
+                })
+            })
+            .catch(err => console.log(err.message))
+
+    }
+
+
+handleAddFolder = folder => {
+  this.setState({
+    folders: [
+      ...this.state.folders,
+      folder
+    ]
+  })
+}
+
+handleAddNote = note => {
+  this.setState({
+    notes: [
+      ...this.state.notes,
+      note
+    ]
+  })
 }
 
 handleDeleteNote = noteId => {
@@ -49,7 +98,9 @@ handleDeleteNote = noteId => {
     const value = {
       notes: this.state.notes,
       folders: this.state.folders,
-      deleteNote: this.handleDeleteNote
+      deleteNote: this.handleDeleteNote,
+      AddFolder: this.handleAddFolder,
+      AddNote: this.handleAddNote
   };
     return (
       <ApiContext.Provider value = {value}>

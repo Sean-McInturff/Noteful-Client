@@ -37,9 +37,9 @@ class Note extends React.Component {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
+          return res.then(e => Promise.reject(e))
+        return res
+        })
       .then(() => {
         this.context.deleteNote(noteId)
         this.props.onDeleteNote(noteId)
@@ -51,7 +51,6 @@ class Note extends React.Component {
 
   render() {
     const modified = formatDate(new Date(this.props.modified));
-    console.log(modified)
     return (
         <div  className="Note">      
         <li>

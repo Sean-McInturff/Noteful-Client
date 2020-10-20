@@ -1,7 +1,6 @@
 import React from 'react';
 import Note from '../Note/Note';
 import ApiContext from '../ApiContext'
-import {getNotesForFolder} from '../notes-helpers' 
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types'
 
@@ -14,9 +13,6 @@ class NoteListMain extends React.Component {
   static contextType = ApiContext
 
   render() {
-    const { folderId } = this.props.match.params
-    const { notes=[] } = this.context
-    const notesForFolder = getNotesForFolder(notes, folderId)
     return (
       <div className="Main">
         <h2>Notes</h2>
