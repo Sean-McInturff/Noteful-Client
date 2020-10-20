@@ -71,10 +71,10 @@ class Note extends React.Component {
 }
 
 Note.propTypes = {
-    id: propTypes.number,
-    note_name: propTypes.string.isRequired,
-    date_modified: function(props, propName, omponentName) {
-      if (typeof props.date_modified != 'object' && typeof props.date_modified != 'string') {
+    id: propTypes.string,
+    name: propTypes.string.isRequired,
+    date_modified: function(props, propName, componentName) {
+      if (typeof props.modified != 'object' && typeof props.modified != 'string') {
         return new Error('This isn\'t a date')
       }
     },
